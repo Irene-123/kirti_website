@@ -50,10 +50,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-```
-
-### 3. Create the CNAME file:
-
-In your `public` folder, create a file named `CNAME` with just this content:
-```
-kirtipurohit.in
