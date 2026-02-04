@@ -1,90 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Kirti Purohit Portfolio - Design System
-   Inspired by code editor aesthetics with coral/peach accents */
+/* Kirti Purohit Portfolio - Cyberpunk Terminal Aesthetic */
 
 @layer base {
   :root {
-    /* Dark theme as primary - developer-focused aesthetic */
-    --background: 225 15% 12%;
-    --foreground: 210 40% 96%;
+    /* Deep terminal black with matrix green accents */
+    --background: 220 20% 4%;
+    --foreground: 150 60% 90%;
 
-    --card: 225 15% 14%;
-    --card-foreground: 210 40% 96%;
+    --card: 220 20% 8%;
+    --card-foreground: 150 60% 90%;
 
-    --popover: 225 15% 14%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 220 20% 8%;
+    --popover-foreground: 150 60% 90%;
 
-    /* Coral accent - primary brand color */
-    --primary: 351 92% 67%;
-    --primary-foreground: 225 15% 12%;
+    /* Matrix green primary */
+    --primary: 150 100% 50%;
+    --primary-foreground: 220 20% 4%;
 
-    /* Peach/gold secondary */
-    --secondary: 43 90% 68%;
-    --secondary-foreground: 225 15% 12%;
+    /* Cyan accent */
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 220 20% 4%;
 
-    --muted: 225 15% 18%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 220 15% 12%;
+    --muted-foreground: 150 30% 50%;
 
-    --accent: 225 15% 20%;
-    --accent-foreground: 210 40% 96%;
+    --accent: 280 100% 65%;
+    --accent-foreground: 220 20% 4%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 225 15% 22%;
-    --input: 225 15% 22%;
-    --ring: 351 92% 67%;
+    --border: 150 50% 20%;
+    --input: 150 50% 20%;
+    --ring: 150 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(351 92% 67%), hsl(43 90% 68%));
-    --gradient-text: linear-gradient(135deg, hsl(351 92% 67%), hsl(43 90% 68%));
-    --gradient-subtle: linear-gradient(135deg, hsl(225 15% 14%), hsl(225 15% 18%));
-    --shadow-glow: 0 0 40px hsl(351 92% 67% / 0.15);
-    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.3);
+    /* Custom cyberpunk tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(150 100% 50%), hsl(180 100% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(280 100% 65%), hsl(320 100% 60%));
+    --gradient-text: linear-gradient(90deg, hsl(150 100% 50%), hsl(180 100% 50%), hsl(280 100% 65%));
+    --shadow-glow: 0 0 30px hsl(150 100% 50% / 0.4);
+    --shadow-glow-accent: 0 0 30px hsl(280 100% 65% / 0.4);
+    --shadow-card: 0 0 40px hsl(150 100% 50% / 0.1);
+    --scanline: repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(150 100% 50% / 0.03) 2px, hsl(150 100% 50% / 0.03) 4px);
 
     /* Sidebar tokens */
-    --sidebar-background: 225 15% 10%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 351 92% 67%;
-    --sidebar-primary-foreground: 225 15% 12%;
-    --sidebar-accent: 225 15% 16%;
-    --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 225 15% 18%;
-    --sidebar-ring: 351 92% 67%;
-  }
-
-  .light {
-    --background: 0 0% 98%;
-    --foreground: 225 15% 12%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 225 15% 12%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 225 15% 12%;
-
-    --primary: 351 92% 55%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 43 90% 55%;
-    --secondary-foreground: 225 15% 12%;
-
-    --muted: 210 20% 95%;
-    --muted-foreground: 215 15% 45%;
-
-    --accent: 210 20% 93%;
-    --accent-foreground: 225 15% 12%;
-
-    --border: 214 20% 88%;
-    --input: 214 20% 88%;
-    --ring: 351 92% 55%;
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 150 60% 90%;
+    --sidebar-primary: 150 100% 50%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 150 60% 90%;
+    --sidebar-border: 150 50% 15%;
+    --sidebar-ring: 150 100% 50%;
   }
 }
 
@@ -99,7 +73,8 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background-image: var(--scanline);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -107,13 +82,31 @@
   }
 
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Fira Code', monospace;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
   }
 }
 
 @layer utilities {
   .text-gradient {
-    background: var(--gradient-primary);
+    background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -123,12 +116,16 @@
     background: var(--gradient-primary);
   }
 
-  .bg-gradient-subtle {
-    background: var(--gradient-subtle);
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
   }
 
   .shadow-glow {
     box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-glow-accent {
+    box-shadow: var(--shadow-glow-accent);
   }
 
   .shadow-card {
@@ -137,6 +134,41 @@
 
   .glass {
     backdrop-filter: blur(12px);
-    background: hsl(var(--card) / 0.8);
+    background: hsl(var(--card) / 0.6);
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  .terminal-border {
+    border: 1px solid hsl(var(--primary) / 0.3);
+    box-shadow: inset 0 0 20px hsl(var(--primary) / 0.05), var(--shadow-glow);
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .glitch {
+    animation: glitch 2s infinite;
+  }
+
+  @keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); }
+    92% { transform: translate(-2px, 2px); }
+    94% { transform: translate(2px, -2px); }
+    96% { transform: translate(-2px, -2px); }
+    98% { transform: translate(2px, 2px); }
+  }
+
+  .typing-cursor::after {
+    content: '_';
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
   }
 }
