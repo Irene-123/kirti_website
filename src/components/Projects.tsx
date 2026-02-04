@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Star } from "lucide-react";
+import { ExternalLink, Github, Folder, Star } from "lucide-react";
 
 interface Project {
   title: string;
@@ -66,7 +66,7 @@ const Projects = () => {
   const otherProjects = projects.filter(p => !p.featured);
 
   return (
-    <section id="projects" className="py-24 md:py-32">
+    <section id="projects" className="py-24 md:py-32 cyber-grid">
       <div className="container px-4 md:px-6">
         <div ref={ref} className="max-w-6xl mx-auto">
           <motion.div
@@ -75,12 +75,14 @@ const Projects = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-primary font-mono text-sm mb-4 block">// projects</span>
+            <span className="text-primary font-mono text-sm mb-4 block">
+              {"<"}<span className="text-secondary">Projects</span>{" />"}
+            </span>
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Featured <span className="text-gradient">Work</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A selection of projects showcasing my expertise in AI, distributed systems, and open-source contributions.
+            <p className="text-muted-foreground font-mono text-sm max-w-2xl mx-auto">
+              // A selection of projects showcasing AI, distributed systems, and open-source contributions
             </p>
           </motion.div>
 
@@ -92,13 +94,16 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-card/50 glass rounded-2xl p-6 shadow-card hover:shadow-glow/10 transition-all duration-300 border border-transparent hover:border-primary/20"
+                className="group terminal-border bg-card/30 p-6 hover:bg-card/50 transition-all duration-300 hover:shadow-glow relative overflow-hidden"
               >
+                {/* Scan line effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <Star className="w-5 h-5 text-secondary" />
-                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-                      {project.type === "oss" ? "Open Source" : project.type === "contribution" ? "Contribution" : "Personal"}
+                    <Star className="w-4 h-4 text-secondary" />
+                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider px-2 py-0.5 border border-muted-foreground/30">
+                      {project.type === "oss" ? "OSS" : project.type === "contribution" ? "CONTRIB" : "PERSONAL"}
                     </span>
                   </div>
                   {project.github && (
@@ -106,14 +111,14 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
+                      className="p-2 hover:bg-primary/10 transition-colors"
                     >
-                      <Github className="w-4 h-4 text-muted-foreground hover:text-foreground" />
+                      <Github className="w-4 h-4 text-muted-foreground hover:text-primary" />
                     </a>
                   )}
                 </div>
 
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors font-mono">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
@@ -124,7 +129,7 @@ const Projects = () => {
                   {project.tech.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 rounded-md bg-muted/50 text-xs font-mono text-muted-foreground"
+                      className="px-2 py-1 border border-primary/20 bg-primary/5 text-xs font-mono text-primary/80"
                     >
                       {tech}
                     </span>
@@ -140,8 +145,8 @@ const Projects = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className="text-xl font-bold text-center mb-8 text-muted-foreground">
-              More Projects
+            <h3 className="text-lg font-mono text-center mb-8 text-muted-foreground">
+              <span className="text-primary">$</span> ls ./more_projects
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {otherProjects.map((project, index) => (
@@ -153,17 +158,18 @@ const Projects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                  className="group flex items-center justify-between p-4 rounded-xl bg-muted/20 hover:bg-muted/40 transition-colors"
+                  className="group flex items-center gap-4 p-4 terminal-border bg-card/20 hover:bg-card/40 transition-all duration-300"
                 >
-                  <div>
-                    <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                  <Folder className="w-5 h-5 text-primary/60 group-hover:text-primary transition-colors" />
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-mono text-sm text-foreground group-hover:text-primary transition-colors truncate">
                       {project.title}
                     </h4>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs text-muted-foreground truncate">
                       {project.tech.slice(0, 3).join(" • ")}
                     </p>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                 </motion.a>
               ))}
             </div>

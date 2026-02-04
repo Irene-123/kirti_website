@@ -39,7 +39,7 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 md:py-32 bg-muted/20">
+    <section id="skills" className="py-24 md:py-32 bg-muted/10">
       <div className="container px-4 md:px-6">
         <div ref={ref} className="max-w-6xl mx-auto">
           <motion.div
@@ -48,9 +48,11 @@ const Skills = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-primary font-mono text-sm mb-4 block">// skills & impact</span>
+            <span className="text-primary font-mono text-sm mb-4 block">
+              {"<"}<span className="text-secondary">Skills</span>{" />"}
+            </span>
             <h2 className="text-3xl md:text-5xl font-bold">
-              Technical <span className="text-gradient">Expertise</span>
+              Technical <span className="text-gradient">Stack</span>
             </h2>
           </motion.div>
 
@@ -67,10 +69,10 @@ const Skills = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.3 + index * 0.1 }}
-                className="relative bg-card/50 glass rounded-2xl p-8 text-center shadow-card overflow-hidden group"
+                className="relative terminal-border bg-card/30 p-8 text-center overflow-hidden group"
               >
-                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity" />
-                <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">{highlight.value}</p>
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <p className="text-4xl md:text-5xl font-bold text-gradient mb-2 font-mono">{highlight.value}</p>
                 <p className="text-foreground font-medium mb-1">{highlight.label}</p>
                 <p className="text-sm text-muted-foreground">{highlight.sublabel}</p>
               </motion.div>
@@ -78,23 +80,23 @@ const Skills = () => {
           </motion.div>
 
           {/* Skills Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {skillCategories.map((category, index) => (
               <motion.div
                 key={category.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="bg-card/30 glass rounded-xl p-6 hover:bg-card/50 transition-colors"
+                className="terminal-border bg-card/20 p-6 hover:bg-card/40 transition-colors group"
               >
-                <h3 className="text-sm font-mono text-primary mb-4 uppercase tracking-wider">
-                  {category.title}
+                <h3 className="text-sm font-mono text-primary mb-4 uppercase tracking-wider flex items-center gap-2">
+                  <span className="text-muted-foreground">$</span> {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 rounded-lg bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-default"
+                      className="px-3 py-1.5 border border-primary/20 bg-primary/5 text-sm text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all cursor-default font-mono"
                     >
                       {skill}
                     </span>
