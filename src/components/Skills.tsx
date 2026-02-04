@@ -1,0 +1,112 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+const skillCategories = [
+  {
+    title: "Languages",
+    skills: ["Python", "Rust", "JavaScript", "TypeScript", "C++", "Java", "Bash"],
+  },
+  {
+    title: "AI & ML",
+    skills: ["LangChain", "RAG", "LLMs", "Sentence Transformers", "TensorFlow", "Vector DBs", "Milvus"],
+  },
+  {
+    title: "Backend",
+    skills: ["Django", "Flask", "FastAPI", "Node.js", "Express", "Kafka", "REST APIs"],
+  },
+  {
+    title: "Cloud & DevOps",
+    skills: ["AWS", "DynamoDB", "Docker", "GitHub Actions", "CI/CD", "N8N"],
+  },
+  {
+    title: "Databases",
+    skills: ["PostgreSQL", "MongoDB", "Redis", "DynamoDB", "Vector Databases"],
+  },
+  {
+    title: "Other",
+    skills: ["Blockchain", "Solidity", "Git", "Linux", "Tauri", "Web3"],
+  },
+];
+
+const achievements = [
+  { value: "55th", label: "WorldQuant Rank", sublabel: "Bronze Medal" },
+  { value: "3343", label: "GATE AIR", sublabel: "Among 100k+" },
+  { value: "1887", label: "CodeChef Rating", sublabel: "Global Ranks 678, 245" },
+];
+
+const Skills = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section id="skills" className="py-24 md:py-32 bg-muted/20">
+      <div className="container px-4 md:px-6">
+        <div ref={ref} className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-primary font-mono text-sm mb-4 block">// skills & achievements</span>
+            <h2 className="text-3xl md:text-5xl font-bold">
+              Technical <span className="text-gradient">Expertise</span>
+            </h2>
+          </motion.div>
+
+          {/* Achievements */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid md:grid-cols-3 gap-6 mb-16"
+          >
+            {achievements.map((achievement, index) => (
+              <motion.div
+                key={achievement.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.3 + index * 0.1 }}
+                className="relative bg-card/50 glass rounded-2xl p-8 text-center shadow-card overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity" />
+                <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">{achievement.value}</p>
+                <p className="text-foreground font-medium mb-1">{achievement.label}</p>
+                <p className="text-sm text-muted-foreground">{achievement.sublabel}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Skills Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skillCategories.map((category, index) => (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="bg-card/30 glass rounded-xl p-6 hover:bg-card/50 transition-colors"
+              >
+                <h3 className="text-sm font-mono text-primary mb-4 uppercase tracking-wider">
+                  {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1.5 rounded-lg bg-muted/50 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
