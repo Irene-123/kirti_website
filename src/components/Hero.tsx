@@ -70,7 +70,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-xl md:text-2xl text-muted-foreground mb-4 font-light"
           >
-            Software Engineer
+            Software Engineer II
           </motion.p>
 
           {/* Description */}
@@ -80,8 +80,8 @@ const Hero = () => {
             transition={{ delay: 0.5 }}
             className="text-lg md:text-xl text-muted-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Building AI-driven systems, scalable backends, and cloud-native applications. 
-            Specialized in <span className="text-primary">RAG</span>, <span className="text-secondary">LLM integrations</span>, 
+            3+ years building AI-driven systems, scalable backends, and production-grade applications. 
+            Specialized in <span className="text-primary">RAG architectures</span>, <span className="text-secondary">LLM integrations</span>, 
             and distributed systems.
           </motion.p>
 

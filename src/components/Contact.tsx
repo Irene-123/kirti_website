@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Github, Linkedin, Mail, Twitter, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, ExternalLink, Calendar, Video } from "lucide-react";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -59,16 +59,46 @@ const Contact = () => {
               Get in <span className="text-gradient">Touch</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              I'm always open to discussing new opportunities, interesting projects, 
-              or just chatting about AI and tech.
+              Open to SDE II opportunities and exciting projects. Let's discuss how I can contribute to your team.
             </p>
+          </motion.div>
+
+          {/* Calendly CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mb-12"
+          >
+            <a
+              href="https://calendly.com/kirtipurohit050"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col sm:flex-row items-center justify-center gap-4 p-8 rounded-2xl bg-gradient-primary/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow"
+            >
+              <div className="p-4 rounded-2xl bg-gradient-primary">
+                <Video className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <div className="text-center sm:text-left">
+                <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  Schedule a Meeting
+                </h3>
+                <p className="text-muted-foreground">
+                  Book a 30-min call to discuss opportunities or collaborations
+                </p>
+              </div>
+              <div className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-primary text-primary-foreground font-medium">
+                <Calendar className="w-5 h-5" />
+                <span>Book Now</span>
+              </div>
+            </a>
           </motion.div>
 
           {/* Main Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="grid sm:grid-cols-2 gap-4 mb-12"
           >
             {socialLinks.map((link, index) => (
@@ -79,7 +109,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3 + index * 0.1 }}
+                transition={{ delay: 0.4 + index * 0.1 }}
                 className="group flex items-start gap-4 p-6 rounded-2xl bg-card/50 glass shadow-card hover:shadow-glow/10 hover:border-primary/20 border border-transparent transition-all duration-300"
               >
                 <div className="p-3 rounded-xl bg-gradient-primary/10 group-hover:bg-gradient-primary/20 transition-colors">
@@ -103,7 +133,7 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="text-center"
           >
             <p className="text-sm text-muted-foreground mb-4">Also find me on</p>

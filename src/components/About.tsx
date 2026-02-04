@@ -7,11 +7,11 @@ const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const highlights = [
-    { icon: Code2, label: "3+ Years", description: "Experience" },
-    { icon: Rocket, label: "RAG & LLMs", description: "Specialty" },
-    { icon: Users, label: "53+", description: "GitHub Followers" },
-    { icon: Award, label: "GATE 3343", description: "All India Rank" },
+const highlights = [
+    { icon: Code2, label: "3+ Years", description: "Production Experience" },
+    { icon: Rocket, label: "RAG & LLMs", description: "Core Specialty" },
+    { icon: Users, label: "Open Source", description: "Active Contributor" },
+    { icon: Award, label: "SDE II", description: "Current Level" },
   ];
 
   return (
@@ -38,17 +38,18 @@ const About = () => {
             className="bg-card/50 glass rounded-2xl p-8 md:p-12 shadow-card mb-12"
           >
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
-              Software Engineer with <span className="text-foreground font-medium">3 years of experience</span> building 
-              AI-driven systems, scalable backend services, and cloud-native applications. 
+              Software Engineer II with <span className="text-foreground font-medium">3+ years of experience</span> building 
+              AI-driven systems, scalable backend services, and cloud-native applications at scale.
             </p>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
               Specialized in <span className="text-primary font-medium">Retrieval-Augmented Generation (RAG)</span>, 
               <span className="text-secondary font-medium"> LLM integrations</span>, and distributed system optimization. 
-              Adept at bridging AI research and production engineering for high-impact innovation.
+              Proficient in <span className="text-foreground font-medium">Python, Rust, and Go</span> for building high-performance systems.
             </p>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Currently at <span className="text-foreground font-medium">Quantum Corporation</span>, working on 
-              advanced RAG architectures, AI-powered code review systems, and MCP server integrations.
+              Active open-source contributor with experience at <span className="text-foreground font-medium">RustDesk</span> and 
+              <span className="text-foreground font-medium"> ChatGPT Desktop (40k+ stars)</span>. Currently leading AI initiatives 
+              at <span className="text-foreground font-medium">Quantum Corporation</span>.
             </p>
           </motion.div>
 

@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Briefcase, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 interface ExperienceItem {
   company: string;
@@ -14,15 +14,15 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     company: "Quantum Corporation",
-    role: "Software Developer",
+    role: "Software Developer (SDE II)",
     period: "Dec 2024 - Present",
     location: "Bangalore",
     current: true,
     highlights: [
-      "Implemented Code RAG pipeline with custom fine-tuned embeddings using sentence transformers for Git Repo Vector Indexing System",
-      "Deployed MCP server integrations with GitLab + N8N, enabling automated workflows for log summarization and PR analysis",
-      "Developed AI-powered PR review system using RAG + DeepSeek LLM, reducing manual review effort by 40%",
-      "Leading strategic technology investment decisions for developer productivity",
+      "Architected Code RAG pipeline with custom fine-tuned sentence transformers for Git Repo Vector Indexing, correlating revision history with code changes in vectorDB",
+      "Built AI-powered PR review system using RAG + DeepSeek LLM, automating repository indexing and commit analysis—reduced manual review effort by 40%",
+      "Deployed MCP server integrations with GitLab + N8N for automated workflows including log summarization, PR analysis, and developer productivity tools",
+      "Leading technical research on emerging AI trends, driving strategic technology decisions that shifted focus toward high-value innovation projects",
     ],
   },
   {
@@ -31,9 +31,32 @@ const experiences: ExperienceItem[] = [
     period: "July 2023 - Jan 2025",
     location: "Bangalore",
     highlights: [
-      "Built automated incident ticketing tool improving SLA from 60 to 85",
-      "Optimized APIs with DynamoDB, multithreading & async to handle 500,000+ units in 10 minutes",
-      "Designed intelligent incident creation system with auto-categorization, cutting triage time by 70%",
+      "Designed and built automated incident ticketing system improving SLA from 60 to 85, enhancing customer experience significantly",
+      "Optimized backend APIs using DynamoDB, multithreading & async patterns—achieved scalability to process 500,000+ units in under 10 minutes",
+      "Implemented intelligent incident routing with Kafka-based auto-categorization, cutting triage time by 70%",
+      "Mentored junior engineers on distributed systems best practices and code review standards",
+    ],
+  },
+  {
+    company: "RustDesk",
+    role: "Open Source Contributor (Octernship)",
+    period: "2023",
+    location: "Remote",
+    highlights: [
+      "Contributed to RustDesk, an open-source remote desktop application written in Rust",
+      "Implemented features and bug fixes for the cross-platform desktop client",
+      "Collaborated with global maintainers on system-level programming and performance optimization",
+    ],
+  },
+  {
+    company: "ChatGPT Desktop (lencx/ChatGPT)",
+    role: "Open Source Contributor",
+    period: "Nov 2022 - Jan 2023",
+    location: "Remote",
+    highlights: [
+      "Core contributor to popular ChatGPT desktop app built with Rust + Tauri (40k+ GitHub stars)",
+      "Integrated DALL-E 2 model for image generation capabilities within the application",
+      "Implemented system integration features improving user experience across Windows, macOS, and Linux",
     ],
   },
   {
@@ -42,8 +65,8 @@ const experiences: ExperienceItem[] = [
     period: "Jan 2023 - July 2023",
     location: "Bangalore",
     highlights: [
-      "Acquired experience with enterprise-scale workflows and stakeholder collaboration",
-      "Optimized API performance using multithreading, achieving 60% improvement in response times",
+      "Built foundation in enterprise-scale workflows, stakeholder collaboration, and cross-team engineering",
+      "Optimized API performance using multithreading and multiprocessing—achieved 60% improvement in response times",
     ],
   },
 ];
@@ -77,7 +100,7 @@ const Experience = () => {
                 key={`${exp.company}-${exp.role}`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 className={`relative mb-12 md:mb-16 ${
                   index % 2 === 0 ? "md:pr-8 md:text-right md:ml-0 md:mr-auto md:w-1/2" : "md:pl-8 md:ml-auto md:w-1/2"
                 } pl-8 md:pl-0`}

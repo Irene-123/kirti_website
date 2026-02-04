@@ -4,34 +4,34 @@ import { useRef } from "react";
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["Python", "Rust", "JavaScript", "TypeScript", "C++", "Java", "Bash"],
+    skills: ["Python", "Rust", "Go", "JavaScript", "TypeScript", "C++", "Java", "Bash"],
   },
   {
     title: "AI & ML",
-    skills: ["LangChain", "RAG", "LLMs", "Sentence Transformers", "TensorFlow", "Vector DBs", "Milvus"],
+    skills: ["LangChain", "RAG", "LLMs", "Sentence Transformers", "TensorFlow", "Vector DBs", "Milvus", "DeepSeek", "Azure AI"],
   },
   {
     title: "Backend",
-    skills: ["Django", "Flask", "FastAPI", "Node.js", "Express", "Kafka", "REST APIs"],
+    skills: ["Django", "Flask", "FastAPI", "Node.js", "Express", "Kafka", "REST APIs", "gRPC", "Microservices"],
   },
   {
     title: "Cloud & DevOps",
-    skills: ["AWS", "DynamoDB", "Docker", "GitHub Actions", "CI/CD", "N8N"],
+    skills: ["AWS", "DynamoDB", "Docker", "Kubernetes", "GitHub Actions", "CI/CD", "N8N", "Terraform"],
   },
   {
     title: "Databases",
-    skills: ["PostgreSQL", "MongoDB", "Redis", "DynamoDB", "Vector Databases"],
+    skills: ["PostgreSQL", "MongoDB", "Redis", "DynamoDB", "Milvus", "Elasticsearch"],
   },
   {
-    title: "Other",
-    skills: ["Blockchain", "Solidity", "Git", "Linux", "Tauri", "Web3"],
+    title: "Systems & Tools",
+    skills: ["Distributed Systems", "System Design", "Blockchain", "Tauri", "Git", "Linux", "MCP Servers"],
   },
 ];
 
-const achievements = [
-  { value: "55th", label: "WorldQuant Rank", sublabel: "Bronze Medal" },
-  { value: "3343", label: "GATE AIR", sublabel: "Among 100k+" },
-  { value: "1887", label: "CodeChef Rating", sublabel: "Global Ranks 678, 245" },
+const highlights = [
+  { value: "3+", label: "Years Experience", sublabel: "Building Production Systems" },
+  { value: "40%", label: "Review Time Saved", sublabel: "AI-Powered PR System" },
+  { value: "500K+", label: "Units Processed", sublabel: "Scalable APIs" },
 ];
 
 const Skills = () => {
@@ -48,31 +48,31 @@ const Skills = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-primary font-mono text-sm mb-4 block">// skills & achievements</span>
+            <span className="text-primary font-mono text-sm mb-4 block">// skills & impact</span>
             <h2 className="text-3xl md:text-5xl font-bold">
               Technical <span className="text-gradient">Expertise</span>
             </h2>
           </motion.div>
 
-          {/* Achievements */}
+          {/* Impact Highlights */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid md:grid-cols-3 gap-6 mb-16"
           >
-            {achievements.map((achievement, index) => (
+            {highlights.map((highlight, index) => (
               <motion.div
-                key={achievement.label}
+                key={highlight.label}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.3 + index * 0.1 }}
                 className="relative bg-card/50 glass rounded-2xl p-8 text-center shadow-card overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity" />
-                <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">{achievement.value}</p>
-                <p className="text-foreground font-medium mb-1">{achievement.label}</p>
-                <p className="text-sm text-muted-foreground">{achievement.sublabel}</p>
+                <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">{highlight.value}</p>
+                <p className="text-foreground font-medium mb-1">{highlight.label}</p>
+                <p className="text-sm text-muted-foreground">{highlight.sublabel}</p>
               </motion.div>
             ))}
           </motion.div>
