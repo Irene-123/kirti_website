@@ -9,9 +9,11 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        serif: ['Newsreader', 'Iowan Old Style', 'Georgia', 'serif'],
       },
       maxWidth: {
         prose: "720px",
+        story: "1180px",
       },
       colors: {
         border: "hsl(var(--border))",

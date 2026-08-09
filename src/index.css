@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -101,6 +101,31 @@
   .reveal-in {
     opacity: 1;
     transform: none;
+  }
+
+  /* Story photography: slightly muted so photos sit inside the page rather than
+     shouting over the type. Dark mode pulls the highlights down a touch. */
+  .photo {
+    filter: saturate(0.94);
+    transition: filter 400ms ease-out, transform 400ms ease-out;
+  }
+
+  .dark .photo {
+    filter: saturate(0.88) brightness(0.86);
+  }
+
+  .photo-frame:hover .photo {
+    filter: saturate(1);
+    transform: scale(1.012);
+  }
+
+  .dark .photo-frame:hover .photo {
+    filter: saturate(0.95) brightness(0.94);
+  }
+
+  /* Hairline rule that fades out — used after chapter markers. */
+  .rule-fade {
+    background-image: linear-gradient(to right, hsl(var(--border)), transparent);
   }
 }
 

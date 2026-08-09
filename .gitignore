@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Original camera files. The web-ready copies live in src/assets/story/ with
+# EXIF (including GPS coordinates) stripped — keep the originals out of the
+# public repo.
+/IMG_*.jpg
+/IMG_*.jpeg
+/IMG_*.HEIC
+/IMG*.jpg
+/15dbee82-7bf5-471f-84a2-a7ff78636397.jpg
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
