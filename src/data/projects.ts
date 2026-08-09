@@ -15,23 +15,22 @@ export interface Project {
   detail: Block[];
 }
 
-const sagaArchitecture = `flowchart LR
-  Client[Dashboard / HTMX + SSE] --> Order[Order Service]
+const sagaArchitecture = `flowchart TB
+  Client[Dashboard, HTMX and SSE] --> Order[Order Service]
   Order --> OB[(Postgres outbox)]
   OB --> Poller[Outbox poller]
-  Poller --> K{{Kafka / Azure Event Hubs}}
-  K --> Inventory[Inventory Service]
-  K --> Payment[Payment Service]
-  K --> Fulfillment[Fulfillment Service]
+  Poller --> K{{Kafka topics, Azure Event Hubs}}
   K --> Saga[Saga Orchestrator]
-  K --> AI[AI Insights Service]
-  K --> Notify[Notification Service]
   Saga --> K
-  AI --> Azure[Azure OpenAI]
+  K --> Inventory[Inventory]
+  K --> Payment[Payment]
+  K --> Fulfillment[Fulfillment]
+  K --> AI[AI Insights] --> Azure[Azure OpenAI]
+  K --> Notify[Notification]
   Inventory --> OB
   Payment --> OB
   Fulfillment --> OB
-  Saga --> Client`;
+  Saga --> Client`
 
 const sagaHappyPath = `sequenceDiagram
   participant O as Order

@@ -16,6 +16,9 @@ const Mermaid = ({ chart, caption }: { chart: string; caption?: string }) => {
         securityLevel: "strict",
         theme: isDark ? "dark" : "neutral",
         fontFamily: "JetBrains Mono, monospace",
+        fontSize: 15,
+        flowchart: { useMaxWidth: true, padding: 12 },
+        sequence: { useMaxWidth: true },
       });
       counter += 1;
       mermaid
@@ -35,7 +38,7 @@ const Mermaid = ({ chart, caption }: { chart: string; caption?: string }) => {
     <figure className="my-8">
       <div
         ref={ref}
-        className="overflow-x-auto rounded-md border border-border bg-muted/40 p-4 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:max-w-full"
+        className="overflow-x-auto rounded-md border border-border bg-muted/40 p-4 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:w-full [&_svg]:max-w-full"
         dangerouslySetInnerHTML={{ __html: svg }}
       />
       {caption && (
