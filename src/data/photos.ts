@@ -49,8 +49,8 @@ export const photos = {
     jpg: [mountainsJpg, mountainsJpg2x],
     width: 800,
     height: 1067,
-    alt: "Kirti standing on a rock beside a glacial stream, arms out, mountains and snow behind her.",
-    caption: "Above the tree line. No pager, no network.",
+    alt: "Kirti standing on a rock beside a glacial stream in Ladakh, arms out, mountains and snow behind her.",
+    caption: "Ladakh, above the tree line. No pager, no network.",
   },
   community: {
     webp: [communityWebp],
