@@ -10,7 +10,7 @@ const WritingHumanTone = () => {
     window.scrollTo(0, 0);
     document.title = "Clients can smell an AI-written DM. Here's the human-tone skill I run first.";
     return () => {
-      document.title = "Kirti Purohit \u2014 Software Engineer";
+      document.title = "Kirti Purohit - Software Engineer";
     };
   }, []);
 
@@ -19,14 +19,14 @@ const WritingHumanTone = () => {
       <div className="mx-auto w-full max-w-prose px-5 py-14 sm:py-20">
         <div className="mb-10 flex items-center justify-between gap-4">
           <Link to="/" className="font-mono text-xs text-muted-foreground hover:text-primary">
-            \u2190 Kirti Purohit
+            {'<-'} Kirti Purohit
           </Link>
           <ThemeToggle />
         </div>
 
         <article>
           <header className="mb-8">
-            <p className="font-mono text-xs text-muted-foreground">Writing \u00b7 September 2026</p>
+            <p className="font-mono text-xs text-muted-foreground">Writing · September 2026</p>
             <h1 className="mt-2 text-2xl font-semibold sm:text-3xl">
               Clients can smell an AI-written DM. Here's the human-tone skill I run first.
             </h1>
@@ -37,7 +37,7 @@ const WritingHumanTone = () => {
               <a href="/skills/human-tone/SKILL.md" className={linkClass}>
                 Claude skill file
               </a>
-              <span className="text-muted-foreground"> \u00b7 copy into Claude, run it on the draft</span>
+              <span className="text-muted-foreground"> · copy into Claude, run it on the draft</span>
             </p>
           </header>
 
