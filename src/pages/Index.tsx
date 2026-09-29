@@ -18,6 +18,7 @@ const chapters: RailItem[] = [
   { id: "projects", number: "05", label: "Projects" },
   { id: "technical", number: "06", label: "Technical" },
   { id: "offline", number: "07", label: "Offline" },
+  { id: "writing", number: "08", label: "Writing" },
 ];
 
 const technical = [
@@ -72,7 +73,6 @@ const Index = () => (
     </a>
 
     <div className="mx-auto w-full max-w-story px-5 pb-20 pt-8 sm:px-8 sm:pt-12">
-      {/* ---------------------------------------------------------------- hero */}
       <header>
         <div className="mb-14 flex items-center justify-between gap-4 sm:mb-20">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -114,7 +114,6 @@ const Index = () => (
           />
         </div>
 
-        {/* Mobile chapter index — the sticky rail is desktop-only. */}
         <nav
           aria-label="Chapters"
           className="mt-14 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-border pt-5 font-mono text-xs text-muted-foreground lg:hidden"
@@ -127,7 +126,6 @@ const Index = () => (
         </nav>
       </header>
 
-      {/* ------------------------------------------------------------ chapters */}
       <div className="mt-20 grid gap-12 sm:mt-28 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-16">
         <ChapterRail items={chapters} />
 
@@ -323,6 +321,46 @@ const Index = () => (
                   </p>
                 </div>
               </div>
+            </Chapter>
+          </Reveal>
+
+          <Reveal>
+            <Chapter
+              id="writing"
+              number="08"
+              label="Writing"
+              title="Notes I publish when the draft is short enough"
+              dateline="Bengaluru · September 2026"
+            >
+              <ul className="grid gap-4 sm:grid-cols-2">
+                <li>
+                  <article className="group h-full rounded-md border border-border p-5 transition-colors hover:border-primary/40">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="text-base font-semibold">
+                        <Link
+                          to="/writing/human-tone"
+                          className="underline-offset-4 group-hover:text-primary group-hover:underline"
+                        >
+                          Hiring managers can smell an LLM DM
+                        </Link>
+                      </h3>
+                      <span className="shrink-0 font-mono text-xs text-muted-foreground">2026</span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                      A Claude skill I run on DMs, client notes, and applications so they don't read
+                      like a landing page.
+                    </p>
+                    <p className="mt-3 flex flex-wrap gap-x-4 font-mono text-xs">
+                      <Link to="/writing/human-tone" className={linkClass}>
+                        Read
+                      </Link>
+                      <a href="/skills/human-tone/SKILL.md" className={linkClass}>
+                        Skill file
+                      </a>
+                    </p>
+                  </article>
+                </li>
+              </ul>
             </Chapter>
           </Reveal>
 
