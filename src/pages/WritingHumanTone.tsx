@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 
+const linkClass =
+  "text-primary underline underline-offset-4 decoration-primary/30 transition-colors hover:decoration-primary";
+
 const WritingHumanTone = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,6 +32,12 @@ const WritingHumanTone = () => {
             </h1>
             <p className="mt-4 font-serif text-xl font-light leading-snug text-foreground/90">
               I use models every day. I don't want my DMs, client notes, or applications to sound like one.
+            </p>
+            <p className="mt-5 font-mono text-xs">
+              <a href="/skills/human-tone/SKILL.md" className={linkClass}>
+                Claude skill file
+              </a>
+              <span className="text-muted-foreground"> · copy into Claude, run it on the draft</span>
             </p>
           </header>
 
@@ -142,13 +151,10 @@ const WritingHumanTone = () => {
 
         <footer className="mt-16 border-t border-border pt-6 font-mono text-xs">
           <div className="flex flex-wrap gap-x-4 gap-y-2">
-            <Link to="/#writing" className="text-primary underline underline-offset-4 decoration-primary/30">
+            <Link to="/#writing" className={linkClass}>
               Back
             </Link>
-            <a
-              href="/skills/human-tone/SKILL.md"
-              className="text-primary underline underline-offset-4 decoration-primary/30"
-            >
+            <a href="/skills/human-tone/SKILL.md" className={linkClass}>
               Claude skill file
             </a>
           </div>
